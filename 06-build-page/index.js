@@ -28,7 +28,7 @@ async function tagsTemplateToHtml() {
     const components = await fs.promises.readFile(path.join(path.join(__dirname, 'components'), `${tag}`), 'utf-8');
     templateHtml = templateHtml.replace(`{{${tag.slice(0, tag.indexOf('.'))}}}`, components); 
   }
-  fs.writeFile(path.join(path.join(__dirname, 'project-dist'),'template.html'), templateHtml, () => {
+  fs.writeFile(path.join(path.join(__dirname, 'project-dist'),'index.html'), templateHtml, () => {
   });
 }
 
