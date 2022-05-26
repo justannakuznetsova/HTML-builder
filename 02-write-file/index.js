@@ -8,8 +8,12 @@ stdout.write('The text you\'re gonna write here will appear in the text.txt file
 stdin.on('data', data => {
   if (data.toString().trim() === 'exit') {
     exit();
-  }
+  } 
   writtenStream.write(data.toString());
 });
 
 process.on('exit', () => stdout.write('See ya!'));
+process.on('SIGINT', () => {
+  exit();
+  stdout.write('See ya!');
+});
